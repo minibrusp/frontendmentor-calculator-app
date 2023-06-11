@@ -1,0 +1,18 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexShort($justify, $align, $direction, $gap) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin keyShadow($color) {
+  box-shadow: 0px 4px 1px 0px $color;
+}

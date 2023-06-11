@@ -1,0 +1,36 @@
+@use "./utils/colors" as color;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+  font-size: 32px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1rem;
+  background-color: color.$veryDarkDesaturatedBlue1;
+  color: color.$white1;
+}
+
+section {
+  padding: 24px;
+}
+
+body.second-theme {
+  background-color: color.$lightGray;
+  color: color.$veryDarkGrayishYellow;
+}
+
+body.third-theme {
+  background-color: color.$veryDarkViolet1;
+  color: color.$lightYellow;
+}
+
+

@@ -1,1 +1,3 @@
-@use 'base' as *;
+@forward "./utils/fonts";
+@forward "./general";
+@forward "./modules/calculator.scss";

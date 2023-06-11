@@ -1,0 +1,124 @@
+@use "./../utils/mixins" as mix;
+@use "./../utils/colors" as color;
+
+.calculator__header {
+  @include mix.flexShort(space-between, center, row, null);
+  margin-bottom: 32px;
+
+
+  &__title {
+    font-size: 32px;
+    margin: 0;
+  }
+
+  &__theme {
+    @include mix.flexShort(flex-start, flex-end, row, 0.5rem);
+
+    &__text {
+      font-size: 12px;
+      display: block;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: color.$white1;
+      opacity: 0.9;
+    }
+
+
+    &__switcher {
+      @include mix.flexShort(space-between, flex-start, column, null);
+      gap: 5px;
+
+      &__label {
+        @include mix.flexShort(space-around, center, row, null);
+        width: 100%;
+
+        span {
+          font-size: 12px;
+        }
+
+      }
+
+
+      &__switches {
+        background-color: color.$veryDarkDesaturatedBlue2;
+        @include mix.flexShort(center, center, row, 0.25rem);
+        padding: 3px;
+        border-radius: 30px;
+        height: 26px;
+        width: 71px;
+        gap: 5px;
+
+        input {
+          display: none;
+        }
+
+        input:checked ~ label {
+          background-color: color.$red;
+
+        }
+
+        label {
+          display: block;
+          width: 17px;
+          height: 17px;
+          background-color: color.$veryDarkDesaturatedBlue2;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}
+
+.second-theme {
+
+  .calculator__header {
+
+    &__theme {
+
+
+      &__text {
+        color: color.$veryDarkGrayishYellow;
+      }
+
+      &__switcher__switches {
+        background-color: color.$grayishRed;
+
+        &__switch input:checked ~ label {
+          background-color: color.$orange;
+        }
+
+        &__switch label {
+          background-color: color.$grayishRed;
+        }
+      }
+    }
+  }
+}
+
+
+.third-theme {
+
+  .calculator__header {
+
+    &__theme {
+
+
+      &__text {
+        color: color.$lightYellow;
+      }
+
+      &__switcher__switches {
+        background-color: color.$veryDarkViolet2;
+
+        &__switch input:checked ~ label {
+          background-color: color.$pureCyan;
+        }
+
+        &__switch label {
+          background-color: color.$veryDarkViolet2;
+        }
+      }
+    }
+  }
+}
