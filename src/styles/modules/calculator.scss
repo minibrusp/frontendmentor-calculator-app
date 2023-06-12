@@ -1,3 +1,16 @@
 @forward "./calc-header";
 @forward "./calc-output";
 @forward "./calc-controls";
+
+.calculator {
+  max-width: 588px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 640px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+  }
+}

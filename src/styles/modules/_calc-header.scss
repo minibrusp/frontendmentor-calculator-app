@@ -4,6 +4,7 @@
 .calculator__header {
   @include mix.flexShort(space-between, center, row, null);
   margin-bottom: 32px;
+  width: 100%;
 
 
   &__title {
@@ -13,6 +14,10 @@
 
   &__theme {
     @include mix.flexShort(flex-start, flex-end, row, 0.5rem);
+
+    @media screen and (min-width: 650px) {
+      gap: 1rem;
+    }
 
     &__text {
       font-size: 12px;
@@ -35,6 +40,10 @@
 
         span {
           font-size: 12px;
+
+          @media screen and (min-width:650px) {
+            font-size: 15px;
+          }
         }
 
       }
@@ -55,7 +64,10 @@
 
         input:checked ~ label {
           background-color: color.$red;
+        }
 
+        input:checked ~ label:hover {
+          filter: brightness(150%) saturate(70%);
         }
 
         label {
@@ -66,9 +78,6 @@
           background-color: color.$veryDarkDesaturatedBlue2;
           border-radius: 100%;
 
-          &:hover {
-            filter: brightness(150%) saturate(70%);
-          }
         }
       }
     }

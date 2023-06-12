@@ -12,7 +12,8 @@
       background-color: color.$lightGrayishYellow;
       @include mix.keyShadow(color.$darkGrayishOrange);
 
-
+      
+      
       &.remover {
         background-color: color.$darkModerateCyan;
         color: color.$white2;
@@ -24,6 +25,15 @@
         background-color: color.$orange;
         @include mix.keyShadow(color.$darkOrange);
       }
+      
+      &:hover.remover {
+        background-color: color.$moonStoneBlue;
+      }
+
+      &:hover.calculate {
+        background-color: color.$mangoTango;
+      }
+
     }
   }
 }
@@ -38,23 +48,34 @@
       background-color: color.$veryDarkViolet;
       @include mix.keyShadow(color.$darkMagenta);
 
+      &:hover {
+        background-color: color.$grape;
+      }
+
 
       &.remover {
         background-color: color.$darkViolet;
         color: color.$white3;
         @include mix.keyShadow(color.$vividMagenta);
       }
-  
+
       &.calculate {
         color: color.$veryDarkBlue;
         background-color: color.$pureCyan;
         @include mix.keyShadow(color.$softCyan);
       }
+      
+      &:hover.remover {
+        background-color: color.$lightgrape;
+      }
+
+      &:hover.calculate {
+        background-color: color.$waterspout;
+      }
+
     }
   }
 }
-
-
 
 .calculator__controls {
   display: grid;
@@ -64,14 +85,18 @@
   border-radius: 8px;
   padding: 24px 24px 28px 24px;;
   background-color: color.$veryDarkDesaturatedBlue2;
+  width: 100%;
+
+  @media screen and (min-width: 640px) {
+    gap: 24px 24px;
+    padding: 32px 30px;
+  }
 
   button {
     font-family: 'League Spartan', sans-serif;
-    // width: 60px;
     height: 60px;
     font-size: 1rem;
     color: color.$veryDarkGrayishBlue;
-  
     padding: 8px 0 0 0;
     display: inline-flex;
     justify-content: center;
@@ -79,8 +104,19 @@
     align-items: center;
     border: navajowhite;
     @include mix.keyShadow(color.$grayishOrange);
-  
     cursor: pointer;
+    background-color: color.$lightGrayishOrange;
+
+    &:hover {
+      background-color: color.$white1;
+    }
+
+    @media screen and (min-width: 640px) {
+      max-width: 101px;
+      font-size: 1.25rem;
+      border-radius: 10px;
+    }
+
   
     &:active, &.remover:active, &.calculate:active  {
       box-shadow: none;
@@ -94,6 +130,14 @@
       color: color.$white1;
       @include mix.keyShadow(color.$desaturatedDarkBlue2);
       padding-top: 3px;
+
+      @media screen and (min-width: 640px) {
+        font-size: 27px;
+      }
+
+      &:hover {
+        background-color: color.$maximumBluePurple;
+      }
     }
 
     &.calculate {
@@ -102,6 +146,18 @@
       background-color: color.$red;
       @include mix.keyShadow(color.$darkRed);
       padding-top: 3px;
+
+      @media screen and (min-width: 640px) {
+        font-size: 27px;
+      }
+
+      &:hover {
+        background-color: color.$Bittersweet;
+      }
+    }
+
+    &.large {
+      max-width: 100%;
     }
 
   }
