@@ -60,9 +60,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 13px;
+  gap: 17px 13px;
   border-radius: 8px;
-  padding: 24px;
+  padding: 24px 24px 28px 24px;;
   background-color: color.$veryDarkDesaturatedBlue2;
 
   button {
@@ -72,7 +72,7 @@
     font-size: 1rem;
     color: color.$veryDarkGrayishBlue;
   
-    padding: 0;
+    padding: 8px 0 0 0;
     display: inline-flex;
     justify-content: center;
     border-radius: 5px;
@@ -89,16 +89,19 @@
 
     &.remover {
       text-transform: uppercase;
-      font-size: 22px;
+      font-size: 19px;
       background-color: color.$desaturatedDarkBlue1;
       color: color.$white1;
       @include mix.keyShadow(color.$desaturatedDarkBlue2);
+      padding-top: 3px;
     }
 
     &.calculate {
+      font-size: 19px;
       color: color.$white1;
       background-color: color.$red;
       @include mix.keyShadow(color.$darkRed);
+      padding-top: 3px;
     }
 
   }

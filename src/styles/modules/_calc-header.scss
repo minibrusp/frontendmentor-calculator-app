@@ -59,11 +59,16 @@
         }
 
         label {
+          cursor: pointer;
           display: block;
           width: 17px;
           height: 17px;
           background-color: color.$veryDarkDesaturatedBlue2;
           border-radius: 100%;
+
+          &:hover {
+            filter: brightness(150%) saturate(70%);
+          }
         }
       }
     }
