@@ -102,7 +102,7 @@
     justify-content: center;
     border-radius: 5px;
     align-items: center;
-    border: navajowhite;
+    border: none;
     @include mix.keyShadow(color.$grayishOrange);
     cursor: pointer;
     background-color: color.$lightGrayishOrange;
