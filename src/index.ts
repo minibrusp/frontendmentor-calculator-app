@@ -20,7 +20,6 @@ form.addEventListener('change', (e: Event) => {
   e.preventDefault()
   let checkedElement = document.querySelector('input[name="theme"]:checked') as HTMLInputElement
   checkedElement.checked = true
-  
   MyCalculator.switchTheme(Number(checkedElement.value))
 })
 
