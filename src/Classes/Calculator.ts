@@ -33,7 +33,7 @@ export class Calculator {
         && value.slice(-1) !== "." 
         && value.slice(-1) !== "0"
       ) {
-      return false
+      return
     }
 
     if(!value.includes(".")) {
@@ -55,7 +55,7 @@ export class Calculator {
       && !Number(value.slice(-1))
       && value.slice(-1) === "0"
       && value.slice(-1) !== "."
-    ) return false
+    ) return
 
     this.screen.value = value.replace(".", "")
 
@@ -69,7 +69,7 @@ export class Calculator {
   }
 
   disPlayButtonToScreen(value: string) {
-    let newValue = value.replace(/X/g, '*')
+    let newValue = value.replace(/x/g, '*')
     newValue = newValue.replace(",", "")
     if(Number(newValue) || newValue === "0" || newValue === ".") {
       this.screen.value += value
