@@ -94,9 +94,27 @@ export class Calculator {
 
   calculate() {
     let newValue = this.screen.value.replace(/x/g, '*')
-    newValue = newValue.replace(/[,\s]/,"").replace(/[,\s]/,"").replace(/[,\s]/,"").replace(/[,\s]/,"")
+    let splitValue = newValue.split(" ")
+
+    splitValue = splitValue.map((value, index) => {
+      if(index % 2 === 0) {
+        let string = `${ parseFloat(splitValue[index].replace(/[,\s]/,"")) }`
+        return string
+      }
+      return value
+    })
+    
+    let joinedValue = splitValue.join("")
+
+    while(newValue.includes(' ') || newValue.includes(",")) {
+      newValue = newValue.replace(/[,\s]/,"")
+    }
+    
+
+    
+
     try {
-      let result = eval(newValue)
+      let result = eval(joinedValue)
       this.screen.value = result
       
     } catch(err) {
