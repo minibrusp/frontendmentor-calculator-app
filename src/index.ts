@@ -24,16 +24,18 @@ form.addEventListener('change', (e: Event) => {
 })
 
 dotBtn.addEventListener("click", () => {
-  MyCalculator.addDot()
-  MyCalculator.inputFocusToEnd()
+  if(screen.value == "Syntax Error") return
+  MyCalculator.addDot().inputFocusToEnd()
 })
 
 calculateBtn.addEventListener("click", () => {
+  if(screen.value == "Syntax Error") return
   if(screen.value === "") return
   MyCalculator.calculate()
 })
 
 deleteBtn.addEventListener("click", () => {
+  if(screen.value == "Syntax Error") return
   MyCalculator.delete()
 })
 
@@ -43,8 +45,8 @@ resetBtn.addEventListener("click", () => {
 
 normalBtns.forEach((normalBtn: HTMLButtonElement) => {
   normalBtn.addEventListener("click", () => {
-    MyCalculator.disPlayButtonToScreen(normalBtn.value)
-    MyCalculator.inputFocusToEnd()
+    if(screen.value == "Syntax Error") return
+    MyCalculator.disPlayButtonToScreen(normalBtn.value).inputFocusToEnd()
   })
 })
 

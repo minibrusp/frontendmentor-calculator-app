@@ -64,7 +64,8 @@ export class Calculator {
   addDot() {
 
     let splitScreenValue = this.screen.value.split(" ")
-    this.checkValueIfDotCanBeAdded(splitScreenValue[splitScreenValue.length - 1])  
+    this.checkValueIfDotCanBeAdded(splitScreenValue[splitScreenValue.length - 1])
+    return this  
   }
 
   disPlayButtonToScreen(value: string) {
@@ -72,10 +73,10 @@ export class Calculator {
     newValue = newValue.replace(",", "")
     if(Number(newValue) || newValue === "0" || newValue === ".") {
       this.screen.value += value
-      return 
+      return this
     }
     this.screen.value += ` ${value} `
-    return
+    return this
   }
 
   delete() {
@@ -83,17 +84,27 @@ export class Calculator {
     if(this.screen.value[this.screen.value.length - 1] === " "){
       this.screen.value = this.screen.value.slice(0, -1)
     }
+    return this
   }
 
   reset() {
     this.screen!.value = ""
+    return this
   }
 
   calculate() {
-    let newValue = this.screen.value.replace(/X/g, '*')
+    let newValue = this.screen.value.replace(/x/g, '*')
     newValue = newValue.replace(/[,\s]/,"").replace(/[,\s]/,"").replace(/[,\s]/,"").replace(/[,\s]/,"")
-    let result = eval(newValue)
+    try {
+      let result = eval(newValue)
+      this.screen.value = result
+      
+    } catch(err) {
+      if(err instanceof SyntaxError) {
+        this.screen.value = "Syntax Error"
+      }
+    }
     
-    this.screen.value = result
+    return this
   }
 }
