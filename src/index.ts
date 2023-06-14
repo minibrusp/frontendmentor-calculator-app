@@ -1,7 +1,6 @@
 import "./styles/index.scss"
 import { Calculator } from "./Classes/Calculator"
 
-
 const form = document.querySelector("form") as HTMLFormElement
 const body = document.body as HTMLBodyElement
 const calculateBtn = document.querySelector("button.calculate") as HTMLButtonElement
@@ -11,18 +10,23 @@ const dotBtn = document.querySelector("button.dotBtn") as HTMLButtonElement
 const normalBtns = document.querySelectorAll("button.normalBtn") as NodeListOf<HTMLButtonElement>
 let screen = document.querySelector("input#output") as HTMLInputElement
 
-
 const MyCalculator = new Calculator(screen, body)
+
+screen.addEventListener('focusout', () => {
+  MyCalculator.inputFocusToEnd()
+})
 
 form.addEventListener('change', (e: Event) => {
   e.preventDefault()
   let checkedElement = document.querySelector('input[name="theme"]:checked') as HTMLInputElement
   checkedElement.checked = true
+  
   MyCalculator.switchTheme(Number(checkedElement.value))
 })
 
 dotBtn.addEventListener("click", () => {
   MyCalculator.addDot()
+  MyCalculator.inputFocusToEnd()
 })
 
 calculateBtn.addEventListener("click", () => {
@@ -39,11 +43,12 @@ resetBtn.addEventListener("click", () => {
 })
 
 normalBtns.forEach((normalBtn: HTMLButtonElement) => {
-  normalBtn.addEventListener("click", (e: Event) => {
-    
+  normalBtn.addEventListener("click", () => {
     MyCalculator.disPlayButtonToScreen(normalBtn.value)
+    MyCalculator.inputFocusToEnd()
   })
 })
+
 
 
 
