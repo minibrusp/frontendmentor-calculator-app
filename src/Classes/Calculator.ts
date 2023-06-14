@@ -96,7 +96,7 @@ export class Calculator {
     let newValue = this.screen.value.replace(/x/g, '*')
     let splitValue = newValue.split(" ")
 
-    if(splitValue[splitValue.length - 1] === "") return this
+    if(splitValue[splitValue.length - 1] === "" && splitValue[splitValue.length - 3] !== "") return this
 
     splitValue = splitValue.map((value, index) => {
       if(index % 2 === 0) {
