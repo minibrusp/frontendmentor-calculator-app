@@ -72,10 +72,10 @@ export class Calculator {
     let newValue = value.replace(/x/g, '*')
     newValue = newValue.replace(",", "")
     if(Number(newValue) || newValue === "0" || newValue === ".") {
-      this.screen.value += value
+      this.screen.value += newValue
       return this
     }
-    this.screen.value += ` ${value} `
+    this.screen.value += ` ${newValue} `
     return this
   }
 
