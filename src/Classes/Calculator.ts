@@ -96,6 +96,8 @@ export class Calculator {
     let newValue = this.screen.value.replace(/x/g, '*')
     let splitValue = newValue.split(" ")
 
+    if(splitValue[splitValue.length - 1] === "") return this
+
     splitValue = splitValue.map((value, index) => {
       if(index % 2 === 0) {
         let string = `${ parseFloat(splitValue[index].replace(/[,\s]/,"")) }`
@@ -109,9 +111,6 @@ export class Calculator {
     while(newValue.includes(' ') || newValue.includes(",")) {
       newValue = newValue.replace(/[,\s]/,"")
     }
-    
-
-    
 
     try {
       let result = eval(joinedValue)
