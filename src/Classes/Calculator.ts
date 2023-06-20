@@ -72,20 +72,19 @@ export class Calculator {
     let screenValue = this.screen.value.replace(/x/g, '*')
     let newValue = value.replace(/x/g, '*')
     
-    console.log(screenValue)
-    console.log(screenValue.charAt(screenValue.length - 1));
+    newValue = newValue.replace(",", "")    
     
-
-    newValue = newValue.replace(",", "")
+    if(newValue.match(/^([\/\+\-\*])$/) && screenValue.charAt(screenValue.length - 1) === " " ) {
+      console.log("Math operators")
+      return this
+    }
 
     if(screenValue.charAt(screenValue.length - 1) === ".") {
-      console.log(newValue)
       this.screen.value += newValue
       return this
     }
 
     if(isNaN(Number(screenValue.charAt(screenValue.length - 1))) && screenValue.length >= 3) {
-      console.log("not a number")
       this.screen.value += ` ${newValue}`
       return this
     }
