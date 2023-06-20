@@ -69,9 +69,28 @@ export class Calculator {
   }
 
   disPlayButtonToScreen(value: string) {
+    let screenValue = this.screen.value.replace(/x/g, '*')
     let newValue = value.replace(/x/g, '*')
+    
+    console.log(screenValue)
+    console.log(screenValue.charAt(screenValue.length - 1));
+    
+
     newValue = newValue.replace(",", "")
-    if(Number(newValue) || newValue === "0" || newValue === ".") {
+
+    if(screenValue.charAt(screenValue.length - 1) === ".") {
+      console.log(newValue)
+      this.screen.value += newValue
+      return this
+    }
+
+    if(isNaN(Number(screenValue.charAt(screenValue.length - 1))) && screenValue.length >= 3) {
+      console.log("not a number")
+      this.screen.value += ` ${newValue}`
+      return this
+    }
+    
+    if(Number(newValue) || newValue === "0" || newValue === "." ) {
       this.screen.value += newValue
       return this
     }
@@ -95,6 +114,8 @@ export class Calculator {
   calculate() {
     let newValue = this.screen.value.replace(/x/g, '*')
     let splitValue = newValue.split(" ")
+    
+    if(isNaN(Number(splitValue[splitValue.length - 1]))) return this
 
     if(splitValue[splitValue.length - 1] === "" && splitValue[splitValue.length - 3] !== "") return this
 
