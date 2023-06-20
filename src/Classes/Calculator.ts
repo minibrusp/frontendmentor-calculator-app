@@ -112,15 +112,23 @@ export class Calculator {
 
   calculate() {
     let newValue = this.screen.value.replace(/x/g, '*')
-    let splitValue = newValue.split(" ")
+    var splitValue: string[] | undefined = []
+
+    if(newValue.split(" ").length === 1) {
+      splitValue = newValue.split("")
+    } else {
+      splitValue = newValue.split(" ")
+    }
     
     if(isNaN(Number(splitValue[splitValue.length - 1]))) return this
+    
 
     if(splitValue[splitValue.length - 1] === "" && splitValue[splitValue.length - 3] !== "") return this
 
+
     splitValue = splitValue.map((value, index) => {
       if(index % 2 === 0) {
-        let string = `${ parseFloat(splitValue[index].replace(/[,\s]/,"")) }`
+        let string = `${ parseFloat(splitValue![index].replace(/[,\s]/,"")) }`
         return string
       }
       return value
